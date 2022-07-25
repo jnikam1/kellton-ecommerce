@@ -1,10 +1,11 @@
 import React from 'react';
+import Directory from '../../component/directory/directory.component';
 import './home.style.scss'
 
 function HomePage(){
     return (
-        <div className="Home">
-            <p>Home Page</p>
+        <div className="homepage">
+            <Directory/>
         </div>
       );  
 }
