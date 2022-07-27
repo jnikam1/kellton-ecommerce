@@ -8,7 +8,7 @@ function CollectionPreview({ title, items }) {
                 {title}
             </h1>
             <div className='preview'>
-                {items.map(({ id, ...otherItemsProps }) => <CollectionItem key={id} {...otherItemsProps} />)}
+                {items.filter((value,index)=> index<4).map(({ id, ...otherItemsProps }) => <CollectionItem key={id} {...otherItemsProps} />)}
                 
             </div>
         </div>

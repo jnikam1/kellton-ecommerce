@@ -1,8 +1,10 @@
+import CustomButton from '../custom-button/custom-button.component';
 import './collection-item.style.scss'
 
 
+
 function CollectionItem({name,imageUrl,price}) {
-    console.log(imageUrl)
+    
     return (
         <div className="collection-item">
 
@@ -14,10 +16,10 @@ function CollectionItem({name,imageUrl,price}) {
                 <span className='price'>
                     {price}
                 </span>
+                <CustomButton inverted='true'>
+                    ADD TO CART
+                </CustomButton>
             </div>
-            <button>
-                Add to Cart
-            </button>
         </div>
     );
 }

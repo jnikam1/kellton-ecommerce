@@ -21,7 +21,7 @@ function Directory() {
     return (
         <div className='directory-menu'>
             {
-                products.sections.map((section,index) => <MenuItem key={section.id} section={section}/>)
+                products.sections.map(({id,...sectionProps},index) => <MenuItem key={id} {...sectionProps}/>)
             }
             
         </div>
