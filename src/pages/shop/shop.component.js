@@ -4,6 +4,7 @@ import './shop.style.scss'
 import {useState} from 'react'
 import SHOP_DATA from './shop.data';
 
+
 function ShopPage(){
 
     const [shop,setShop] = useState({
@@ -11,6 +12,7 @@ function ShopPage(){
     })
     return (
         <div className="shop-page">
+            
             {shop.collections.map(({id,...otherCollectionProps})=><CollectionPreview key={id} {...otherCollectionProps}/>)}
         </div>
       );  

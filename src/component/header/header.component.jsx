@@ -3,15 +3,15 @@ import './header.style.scss'
 import { ReactComponent as Logo } from '../../assets/crwns.svg'
 import { Link } from 'react-router-dom'
 import CartIcon from '../cart-icon/cart-icon.component';
-import CartDropDown from '../cart-drop-down/cart-drop-down.component';
 import { useState } from 'react'
+import CartDropDown from '../cart-drop-down/cart-drop-down.component';
 
 
 function Header() {
 
-    const [hidden, setHidden] = useState(false)
+    const [hidden, setHidden] = useState(true)
 
-    cartDropDown = () =>{
+    const cartDropChange = () => {
         setHidden(!hidden)
     }
     return (
@@ -31,16 +31,10 @@ function Header() {
                 <Link className='option' to='/contact'>
                     Contact
                 </Link>
-                <CartIcon />
+                <CartIcon cartDropChange={cartDropChange} />
 
             </div>
-            <CartDropDown>
-                {/* <div `${hidden ? "hidden" : null}`>
-
-                </div> */}
-            </CartDropDown>
-            
-
+            {hidden ? null : <CartDropDown />}
         </div>
     );
 }

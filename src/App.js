@@ -6,6 +6,8 @@ import HomePage from './pages/home/home.component';
 import ShopPage from './pages/shop/shop.component';
 import './App.css'
 import Contact from './pages/contact/contact.component';
+import Collections from './pages/collections/collections.component';
+
 
 function App() {
   return (
@@ -15,14 +17,16 @@ function App() {
 
         <Route exact path="/" component={HomePage}/>
           
-        <Route path="/shop" component={ShopPage}/>
+        <Route exact path="/shop" component={ShopPage}/>
          
         <Route path="/checkout" component={CheckoutPage}/>
           
         <Route path="/auth" component={AuthPage}/>
 
         <Route path="/contact" component={Contact} />
-          
+
+        <Route path="/shop/:collectionName" component={Collections} />
+
       </Switch>
     </div>
   );
