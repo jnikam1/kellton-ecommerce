@@ -9,7 +9,7 @@ function Directory() {
 
     useEffect(()=>{
         async function getProduct(){
-            const result = await axios("http://localhost:8080/e-commerce/read")
+            const result = await axios("https://e-commerce-backend-kellton.herokuapp.com/e-commerce/read")
         
             setproducts({sections:result.data.data})
 

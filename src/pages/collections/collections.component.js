@@ -1,16 +1,27 @@
 import './collections.style.scss'
-import { useState } from 'react'
-import SHOP_DATA from '../shop/shop.data';
+import { useState,useEffect } from 'react'
 import CollectionItem from '../../component/collection-item/collection-item.component';
+import axios from 'axios'
 
 function Collections(ownProps) {
     // console.log(ownProps.match.params.collectionName)
-    const [shop, setShop] = useState({
-        collections: SHOP_DATA
-    })
+    const [product, setProduct] = useState({collections: []})
 
-    const collection = shop.collections.filter(value => value.title.toLowerCase() === ownProps.match.params.collectionName)
-    // console.log(collection)
+    useEffect(()=>{
+        async function getProduct(){
+            const productResult = await axios("https://e-commerce-backend-kellton.herokuapp.com/e-commerce/read")
+
+            console.log(productResult.data.data)
+        
+            setProduct({collections:productResult.data.data})
+
+        }
+
+        getProduct()
+    },[])
+
+    const collection = product.collections.filter(value => value.title.toLowerCase() === ownProps.match.params.collectionName)
+    console.log(collection)
 
     return (
         <div className="collection-page">
