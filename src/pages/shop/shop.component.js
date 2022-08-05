@@ -10,10 +10,14 @@ function ShopPage(){
     const [shop,setShop] = useState({collections:[]})
 
     useEffect(()=>{
+        let isMounted = true;
         async function getShop(){
             const result = await axios("https://e-commerce-backend-kellton.herokuapp.com/shop/read")
-        
-            setShop({collections:result.data.data})
+            
+            if (isMounted){
+                setShop({collections:result.data.data})
+            }
+            
 
         }
 

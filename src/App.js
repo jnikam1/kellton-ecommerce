@@ -7,6 +7,9 @@ import ShopPage from './pages/shop/shop.component';
 import './App.css'
 import Contact from './pages/contact/contact.component';
 import Collections from './pages/collections/collections.component';
+import Success from './component/success/success.component';
+import SuccessSignIn from './component/sign-in-success/sign-in-success.component';
+import SuccessContact from './component/success-contact/success-contact.component';
 
 
 function App() {
@@ -26,6 +29,12 @@ function App() {
         <Route path="/contact" component={Contact} />
 
         <Route path="/shop/:collectionName" component={Collections} />
+
+        <Route path="/success" component={Success} />
+
+        <Route path="/success-sign-in" component={SuccessSignIn} />
+
+        <Route path="/success-contact" component={SuccessContact} />
 
       </Switch>
     </div>

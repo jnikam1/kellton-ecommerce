@@ -1,18 +1,20 @@
 import './form-input.style.scss'
 
-function FormInput({ label }) {
+function FormInput({ label,handleChange,...otherProps}) {
+    console.log(otherProps.value)
     return (
         <div className="group">
             {
-                label ? (<label className='form-input-label'>{label}</label>) : null
+                label ? (<label className={`${otherProps.value ? 'shrink' : '' } form-input-label `}>{label}</label>) : null
             }
             <input className='form-input'
                 type="text"
-                name='displayName'
-
+                onChange={handleChange}
+                {...otherProps}
             />
         </div>
     );
 }
 
 export default FormInput;
+
